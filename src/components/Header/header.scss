@@ -1,0 +1,12 @@
+@import "../../assets/css/variables.scss";
+.m-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: $height-header;
+  overflow-x: auto;
+  & .m-wrapper {
+    display: flex;
+    column-gap: 0.9rem;
+  }
+}

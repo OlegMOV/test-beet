@@ -1,0 +1,56 @@
+@import "../../assets/css/variables.scss";
+$size-icon: 1.5rem;
+.me-help {
+  font-family: $font-family-calendar-text;
+  background-color: $bg-board;
+  max-width: 344px;
+  margin: 24px 40px 0 40px;
+  &__title {
+    font: {
+      size: 24px;
+      weight: 600;
+    }
+    padding-bottom: 60px;
+  }
+  &__section-title {
+    font: {
+      size: 24px;
+      weight: 400;
+    }
+    padding-bottom: 10px;
+  }
+  &__section-images {
+    display: flex;
+    column-gap: 30px;
+    align-items: center;
+    font: {
+      size: 1rem;
+      weight: 500;
+    }
+    & > img {
+      height: 16px;
+      width: 16px;
+    }
+    padding-bottom: 16px;
+  }
+  &__section-text {
+    color: $color-font-passive;
+    font: {
+      size: 14px;
+      weight: 400;
+    }
+    padding-bottom: 40px;
+  }
+  & * > img {
+    height: 16px;
+    width: 16px;
+    &.greenstar {
+      height: 30px;
+      width: 30px;
+    }
+    &.goldstar {
+      height: 38px;
+      width: 38px;
+    }
+  }
+}

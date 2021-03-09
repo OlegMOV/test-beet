@@ -1,0 +1,37 @@
+// ? Fonts
+$font-family-calendar-numbers: 'Mali', cursive;
+$font-size-calendar-numbers: 18px;
+$font-family-calendar-text: 'Poppins', sans-serif;
+$font-size-header-button: 14px;
+// $font-h2: { font-size: 24px, font-weight: 600};
+// ? Backgrounds
+$bg-calendar: #F5F6F6;
+$bg-hover-day: rgba(87, 148, 116, 0.08);
+$bg-board: #FFFFFF;
+// ? Size
+$size-ico: 40px;
+$height-header: 144px;
+$height-header-button: 64px;
+$border-radius-all: 10px;
+
+$height-form-line: 40px;
+// ? FC Board
+$border-color-board: rgb(206, 205, 205);
+$border-top-success: 2px solid #396A61;
+$border-top-warning: 2px solid #E35D5A;
+$border-weekday: (
+  sun: #E35D5A,
+  mon: #FF8E4E,
+  tue: #FDD66A,
+  wed: #91D195,
+  thu: #5B89DB,
+  fri: #D185F7,
+);
+$bg-board: white;
+$bg-today: rgb(205, 228, 230);
+// $bg-hover: rgb(231, 230, 228);
+
+// ? Fonts color
+$color-font-active: #1D1B19;
+$color-font-passive: #818690;
+$color-font-disabled: #CFD5D7;

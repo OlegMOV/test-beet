@@ -1,0 +1,49 @@
+@import "../../assets/css/variables.scss";
+$color-border: #cfd5d7;
+
+.me-header-button {
+  font: {
+    family: $font-family-calendar-text;
+    size: $font-size-header-button;
+    weight: 500;
+  }
+  display: flex;
+  height: $height-header-button;
+  border-radius: #{$height-header-button / 2};
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  & > img {
+    width: $size-ico;
+    height: $size-ico;
+    transition: all 0.3s ease;
+    &:hover {
+      transform: scale(1.2);
+    }
+    &.grabbable {
+      cursor: move;
+      cursor: grab;
+      cursor: -moz-grab;
+      cursor: -webkit-grab;
+    }
+  }
+  &.greenstar,
+  &.goldstar {
+    width: 110px;
+    box-shadow: inset 3px 3px 4px #0000001e, 3px 3px 4px white;
+  }
+  &.help,
+  &.text {
+    border: 1px solid $color-border;
+  }
+  &.help {
+    width: $height-header-button;
+  }
+  &.text {
+    width: 92px;
+    transition: all 0.3s ease;
+    &:hover {
+      font-size: $font-size-header-button * 1.2;
+    }
+  }
+}

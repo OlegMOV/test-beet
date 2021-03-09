@@ -1,0 +1,30 @@
+@import "../../assets/css/variables.scss";
+@import "../../assets/css/mixins.scss";
+.m-month {
+  font: {
+    family: $font-family-calendar-text;
+    weight: 400;
+    size: 24px;
+  }
+  display: flex;
+  column-gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+  width: 270px;
+  &__next {
+    font: inherit;
+    cursor: pointer;
+    @include clear-style-button;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    transition: all 0.3s ease;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+  &__name {
+    
+    text-align: center;
+  }
+}

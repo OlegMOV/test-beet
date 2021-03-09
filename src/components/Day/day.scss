@@ -1,0 +1,69 @@
+@import "../../assets/css/variables.scss";
+
+$indent: 16px;
+.me-day {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-top: 1px solid $border-color-board;
+  &.happy {
+    border-top: 2px solid #97ca4f;
+  }
+  &.sad {
+    border-top: 2px solid #e35d5a;
+  }
+  &__date,
+  &__update {
+    color: $color-font-active;
+    position: absolute;
+    top: $indent;
+  }
+  &__date {
+    left: $indent;
+    &.another {
+      color: $color-font-passive;
+    }
+    &.today {
+      color: #e35d5a;
+      font-weight: 700;
+    }
+  }
+  &__update {
+    cursor: pointer;
+    right: $indent;
+    color: transparent;
+  }
+  &__body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 40px;
+    overflow-x: auto;
+    & img {
+      width: 40px;
+      height: 40px;
+      transition: all 0.3s ease;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+  &:hover {
+    background-color: $bg-hover-day;
+  }
+  &:hover &__update {    
+    color: $color-font-active;
+  }
+  @each $day, $color in $border-weekday {
+    &.#{$day} {
+      border-right: 2px solid $color;
+      @if $day != sun {
+        border-left: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@import "../../assets/css/variables.scss";
+.me-popup {
+  font: {
+    size: 14px;
+    color: #CFD5D7;
+    weight: 400;
+
+  }
+  position: absolute;
+  width: 285px;
+  height: 192px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: $border-radius-all;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  z-index: 20;
+  &__line {
+    display: flex;
+    align-items: center;
+    & span {      
+      margin-right: 4px;
+      &.active {
+        font-weight: 800;
+      }
+    }
+    & > img {
+      height: 16px;
+      width: 16px;
+      margin-right: 14px;
+    }    
+  }
+}
