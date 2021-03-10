@@ -4,13 +4,15 @@ $size-icon: 1.5rem;
   font-family: $font-family-calendar-text;
   background-color: $bg-board;
   max-width: 344px;
+  max-height: 80vh;
   margin: 24px 40px 0 40px;
+  overflow: auto;
   &__title {
     font: {
       size: 24px;
       weight: 600;
     }
-    padding-bottom: 60px;
+    padding-bottom: 30px;
   }
   &__section-title {
     font: {
@@ -31,7 +33,6 @@ $size-icon: 1.5rem;
       height: 16px;
       width: 16px;
     }
-    padding-bottom: 16px;
   }
   &__section-text {
     color: $color-font-passive;
@@ -39,7 +40,7 @@ $size-icon: 1.5rem;
       size: 14px;
       weight: 400;
     }
-    padding-bottom: 40px;
+    padding-bottom: 10px;
   }
   & * > img {
     height: 16px;

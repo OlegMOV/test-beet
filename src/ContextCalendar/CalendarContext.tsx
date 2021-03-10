@@ -62,6 +62,27 @@ let initialState: IStateResaults = {
     amountGreenStar: 0,
     amountGoldStar: 0,
   },
+  "2021-03-04": {
+    redCounts: 5,
+    greenCounts: 12,
+    stepCounts: 4500,
+    amountGreenStar: 2,
+    amountGoldStar: 0,
+  },
+  "2021-03-06": {
+    redCounts: 1,
+    greenCounts: 6,
+    stepCounts: 2000,
+    amountGreenStar: 1,
+    amountGoldStar: 0,
+  },
+  "2021-03-08": {
+    redCounts: 5,
+    greenCounts: 14,
+    stepCounts: 8000,
+    amountGreenStar: 0,
+    amountGoldStar: 1,
+  },
 };
 // * Initial Context
 const CalendarContext = React.createContext<ICalendar>({
