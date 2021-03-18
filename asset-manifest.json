@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/test-beet/static/css/main.eeae1af9.chunk.css",
-    "main.js": "/test-beet/static/js/main.d7fadbe0.chunk.js",
-    "main.js.map": "/test-beet/static/js/main.d7fadbe0.chunk.js.map",
-    "runtime-main.js": "/test-beet/static/js/runtime-main.518f11ef.js",
-    "runtime-main.js.map": "/test-beet/static/js/runtime-main.518f11ef.js.map",
-    "static/js/2.3c9e6efa.chunk.js": "/test-beet/static/js/2.3c9e6efa.chunk.js",
-    "static/js/2.3c9e6efa.chunk.js.map": "/test-beet/static/js/2.3c9e6efa.chunk.js.map",
-    "static/js/3.e8945ac9.chunk.js": "/test-beet/static/js/3.e8945ac9.chunk.js",
-    "static/js/3.e8945ac9.chunk.js.map": "/test-beet/static/js/3.e8945ac9.chunk.js.map",
+    "main.js": "/test-beet/static/js/main.5f7d05e2.chunk.js",
+    "main.js.map": "/test-beet/static/js/main.5f7d05e2.chunk.js.map",
+    "runtime-main.js": "/test-beet/static/js/runtime-main.063040aa.js",
+    "runtime-main.js.map": "/test-beet/static/js/runtime-main.063040aa.js.map",
+    "static/js/2.b63b301a.chunk.js": "/test-beet/static/js/2.b63b301a.chunk.js",
+    "static/js/2.b63b301a.chunk.js.map": "/test-beet/static/js/2.b63b301a.chunk.js.map",
+    "static/js/3.34337526.chunk.js": "/test-beet/static/js/3.34337526.chunk.js",
+    "static/js/3.34337526.chunk.js.map": "/test-beet/static/js/3.34337526.chunk.js.map",
     "index.html": "/test-beet/index.html",
     "static/css/main.eeae1af9.chunk.css.map": "/test-beet/static/css/main.eeae1af9.chunk.css.map",
-    "static/js/2.3c9e6efa.chunk.js.LICENSE.txt": "/test-beet/static/js/2.3c9e6efa.chunk.js.LICENSE.txt",
+    "static/js/2.b63b301a.chunk.js.LICENSE.txt": "/test-beet/static/js/2.b63b301a.chunk.js.LICENSE.txt",
     "static/media/arrow.7341b856.svg": "/test-beet/static/media/arrow.7341b856.svg",
     "static/media/arrow_shot.9ad6df22.svg": "/test-beet/static/media/arrow_shot.9ad6df22.svg",
     "static/media/help.b5b60e18.svg": "/test-beet/static/media/help.b5b60e18.svg",
@@ -32,9 +32,9 @@
     "static/media/star-green.d4309c7e.svg": "/test-beet/static/media/star-green.d4309c7e.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.518f11ef.js",
-    "static/js/2.3c9e6efa.chunk.js",
+    "static/js/runtime-main.063040aa.js",
+    "static/js/2.b63b301a.chunk.js",
     "static/css/main.eeae1af9.chunk.css",
-    "static/js/main.d7fadbe0.chunk.js"
+    "static/js/main.5f7d05e2.chunk.js"
   ]
 }
