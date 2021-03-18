@@ -8,12 +8,14 @@ import {
 import { Popup } from "../Popup/Popup";
 import { IPopup } from "../../allInterfaces";
 import { createBoardMonth } from "../../logics/logics";
+import { statusAPI } from "../../API/useApi";
 
 export const Board: React.FC<{ toogleModal: (m: number) => void }> = ({
   toogleModal,
 }) => {
   const {
     currentMonthYear: [curMonth, curYear],
+    whatAPI,
   } = useCurrentMonthYear();
   const [currentData, setCurrentData] = React.useState<IPopup>({
     curDay: "",
@@ -21,6 +23,7 @@ export const Board: React.FC<{ toogleModal: (m: number) => void }> = ({
     y: 0,
   });
   const [days, setDays] = React.useState<Date[]>([]);
+
   React.useEffect(() => {
     setDays(createBoardMonth(curMonth, curYear));
     setCurrentData({ curDay: "", x: 0, y: 0 });
@@ -36,11 +39,14 @@ export const Board: React.FC<{ toogleModal: (m: number) => void }> = ({
 
   return (
     <div className={sizeBoard}>
+      {}
       {Object.keys(WeekDays)
         .filter((x) => !(parseInt(x) >= 0))
         .map((_, i) => (
           <div className="m-board__weekdays" key={i}>
-            {WeekDays[i]}
+            {whatAPI === statusAPI.LOADING && i === 3 && <h4>Loading...</h4>}
+            {whatAPI === statusAPI.ERROR && i === 3 && <h4>Error API</h4>}
+            {whatAPI === statusAPI.SUCCESS && WeekDays[i]}
           </div>
         ))}
       {days.map((day_, ind) => (

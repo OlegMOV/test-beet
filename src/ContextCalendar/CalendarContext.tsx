@@ -1,5 +1,6 @@
 import React from "react";
 import { TypeButton } from "../components/HeaderButton/HeaderButton";
+import { IDataAPI, methodAPI, statusAPI, useFetchAPI } from "../API/useApi";
 
 // * Limit stars on the month
 const limitGreen: number = 21;
@@ -52,6 +53,7 @@ interface ICalendar {
   getResaultOnDate: (d: string) => IResault; // ? Get data from global state on selected date
   getStarOnMonth: (typeStar: "amountGreenStar" | "amountGoldStar") => number; // ? Get amount green | gold star in selected month
   setDraggedStar?: (drg: TypeButton) => void; // ? set Dragged star
+  readonly whatAPI: statusAPI;
 }
 
 let initialState: IStateResaults = {
@@ -61,27 +63,6 @@ let initialState: IStateResaults = {
     stepCounts: 1000,
     amountGreenStar: 0,
     amountGoldStar: 0,
-  },
-  "2021-03-04": {
-    redCounts: 5,
-    greenCounts: 12,
-    stepCounts: 4500,
-    amountGreenStar: 2,
-    amountGoldStar: 0,
-  },
-  "2021-03-06": {
-    redCounts: 1,
-    greenCounts: 6,
-    stepCounts: 2000,
-    amountGreenStar: 1,
-    amountGoldStar: 0,
-  },
-  "2021-03-08": {
-    redCounts: 5,
-    greenCounts: 14,
-    stepCounts: 8000,
-    amountGreenStar: 0,
-    amountGoldStar: 1,
   },
 };
 // * Initial Context
@@ -102,6 +83,7 @@ const CalendarContext = React.createContext<ICalendar>({
   }),
   getStarOnMonth: () => 0,
   setDraggedStar: () => console.log("void"),
+  whatAPI: statusAPI.SUCCESS,
 });
 // * Hook for get Context data
 export const useCurrentMonthYear = () => {
@@ -124,15 +106,64 @@ export const CalendarContextProvider: React.FC<React.ReactNode> = ({
   );
   // * Dragged star
   const [draggedStar, setDraggedStar] = React.useState<TypeButton>("");
+  // * Hook for API
+  const [resaultsAPI, createQuery, isLoading] = useFetchAPI();
   // * Set current month and year
   const handlerCurrentMonthYear = (m: number, y: number): void => {
     setCurMonthYear([m, y]);
   };
-  // * Set item into Global state
+  // * Set item into Global state / API
   const handleItemGlobalState = (data: IStateResaults): void => {
-    setResaults((prev) => ({ ...prev, ...data }));
-    setDraggedStar("")
+    // setResaults((prev) => ({ ...prev, ...data }));
+    if (Object.keys(data).length === 1) {
+      let methodapi: methodAPI = methodAPI.post;
+      let dateEdit: string = Object.keys(data)[0];
+      if (Object.keys(resaults).includes(dateEdit)) methodapi = methodAPI.put;
+      let temp: IDataAPI = {
+        redBalls: Number(data[dateEdit].redCounts) || 0,
+        greenBalls: Number(data[dateEdit].greenCounts) || 0,
+        countSteps: Number(data[dateEdit].stepCounts) || 0,
+        greenStars: Number(data[dateEdit].amountGreenStar) || 0,
+        goldStars: Number(data[dateEdit].amountGoldStar) || 0,
+        date: dateEdit,
+        personID: "60508d17f0eddc279bda88bb",
+      };
+      createQuery({
+        url: "https://test-beetroot.herokuapp.com/achieves",
+        params: "",
+        method: methodapi,
+        data: temp,
+      });
+    }
+    setDraggedStar("");
   };
+  // * Initial state from API
+  React.useEffect(() => {
+    createQuery({
+      url:
+        "https://test-beetroot.herokuapp.com/achieves/month/60508d17f0eddc279bda88bb",
+      params: { month: curMonthYear[0] + 1, year: curMonthYear[1] },
+      method: methodAPI.get,
+    });
+  }, []);
+  // * Change local state
+  React.useEffect(() => {
+    if (typeof resaultsAPI === "string" || resaultsAPI === []) return;
+    let temp: IStateResaults = Object.fromEntries(
+      resaultsAPI.map((item) => [
+        [String(item.date)],
+        {
+          redCounts: Number(item.redBalls) || 0,
+          greenCounts: Number(item.greenBalls) || 0,
+          stepCounts: Number(item.countSteps) || 0,
+          amountGreenStar: Number(item.greenStars) || 0,
+          amountGoldStar: Number(item.goldStars) || 0,
+        },
+      ])
+    );
+    setResaults((prev) => ({ ...prev, ...temp }));
+    // handleItemGlobalState(temp);
+  }, [resaultsAPI]);
   // * Get item Global state
   const getResult: (d: string) => IResault = (d: string) => {
     if (Object.keys(resaults).includes(d)) return resaults[d];
@@ -167,6 +198,7 @@ export const CalendarContextProvider: React.FC<React.ReactNode> = ({
         getResaultOnDate: getResult,
         getStarOnMonth: getAmountStar,
         setDraggedStar: setDraggedStar,
+        whatAPI: isLoading,
       }}
     >
       {children}

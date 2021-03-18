@@ -1,11 +1,12 @@
 import { IHealth } from "../allInterfaces";
 import { IResault } from "../ContextCalendar/CalendarContext";
 
-export const howGood = (g: number, r: number): IHealth => {
+export const howGood = (g: number, r: number, step: number): IHealth => {
   let res: number = 0;
-  if (g === 0 && r === 0) return { status: "choose" };
+  if (g === 0 && r === 0 && step === 0) return { status: "choose" };
   try {
-    res = g / r;
+    if (r === 0) r = 1;
+    res = (g + Math.floor(step / 1000)) / r;
   } catch {
     return { status: "choose" };
   }
@@ -26,9 +27,9 @@ export const createBoardMonth = (m: number, y: number): Array<Date> => {
 };
 
 export const isDraggableDay = (d: Date): boolean => {
-  if (d.isWeekend()) return true;
-  return false;
-  // return true;
+  // if (d.isWeekend()) return true;
+  // return false;
+  return true;
 };
 
 export const isGetStar = (

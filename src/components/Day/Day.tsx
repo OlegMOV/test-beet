@@ -63,7 +63,7 @@ export const Day: React.FC<IDay> = ({ date, toogleModal, popupDialog }) => {
   const res: IResault = getResaultOnDate(transformDate(date));
   // * Create Class CSS for this day
   const classDay: string = `${prefixClass} ${WeekDays[date.getDay()]} ${
-    howGood(res.greenCounts, res.redCounts).status
+    howGood(res.greenCounts, res.redCounts, res.stepCounts).status
   }`;
   // * Craete class for date
   const classDate: string = `${prefixClass}__date${

@@ -27,7 +27,7 @@ export const Popup: React.FC<{ data: IPopup }> = ({ data }) => {
   // * Get resaults on this day
   const res: IResault = getResaultOnDate(data.curDay);
   // * Choose emoji
-  const mood: IHealth = howGood(res.greenCounts, res.redCounts);
+  const mood: IHealth = howGood(res.greenCounts, res.redCounts, res.stepCounts);
   // * Upper last icon emoji
   const styleEmoji: CSS.Properties = {
     height: "24px",
