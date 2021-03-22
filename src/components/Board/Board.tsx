@@ -1,11 +1,11 @@
 import React from "react";
-import { Day } from "@components/Day/Day";
+import { Day } from "../Day/Day";
 import "./board.scss";
-import { useCurrentMonthYear, WeekDays } from "@context/CalendarContext";
-import { Popup } from "@components/Popup/Popup";
-import { IPopup } from "@interfaces";
-import { createBoardMonth } from "@logic";
-import { statusAPI } from "@api";
+import { useCurrentMonthYear, WeekDays } from "../../ContextCalendar/CalendarContext";
+import { Popup } from "../Popup/Popup";
+import { IPopup } from "../../allInterfaces";
+import { createBoardMonth } from "../../logic/logic";
+import { statusAPI } from "../../API/useApi";
 
 export const Board: React.FC<{ toogleModal: (m: number) => void }> = ({
   toogleModal,

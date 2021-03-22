@@ -1,13 +1,13 @@
 import React from "react";
 import "./help.scss";
-import greenBall from "@assets/image/me-green-ball.svg";
-import redBall from "@assets/image/me-red-ball.svg";
-import steps from "@assets/image/me-steps.svg";
-import greenstar from "@assets/image/star-green.svg";
-import goldstar from "@assets/image/star-gold.svg";
-import me_ok from "@assets/image/me-ok.svg";
-import ico_arrow from "@assets/image/arrow.svg";
-import arrow_shot from "@assets/image/arrow_shot.svg";
+import greenBall from "../../assets/image/me-green-ball.svg";
+import redBall from "../../assets/image/me-red-ball.svg";
+import steps from "../../assets/image/me-steps.svg";
+import greenstar from "../../assets/image/star-green.svg";
+import goldstar from "../../assets/image/star-gold.svg";
+import me_ok from "../../assets/image/me-ok.svg";
+import ico_arrow from "../../assets/image/arrow.svg";
+import arrow_shot from "../../assets/image/arrow_shot.svg";
 
 export const Help: React.FC = () => {
   return (

@@ -1,10 +1,10 @@
 import React from "react";
 import "./editor.scss";
-import { howGood } from "@logic";
+import { howGood } from "../../logic/logic";
 
-import { useCurrentMonthYear, IResault } from "@context/CalendarContext";
-import { Counter } from "@components/Counter/Counter";
-import { StatusHealth } from "@components/StatusHealth/StatusHealth";
+import { useCurrentMonthYear, IResault } from "../../ContextCalendar/CalendarContext";
+import { Counter } from "../Counter/Counter";
+import { StatusHealth } from "../StatusHealth/StatusHealth";
 
 export const Editor: React.FC<{ handleClose: () => void }> = ({
   handleClose,

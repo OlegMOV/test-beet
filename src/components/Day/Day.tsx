@@ -5,13 +5,13 @@ import {
   MonthNames,
   IResault,
   IStateResaults,
-} from "@context/CalendarContext";
+} from "../../ContextCalendar/CalendarContext";
 import "../../date.extensions";
-import { howGood, isGetStar } from "@logic";
-import greenstar from "@assets/image/star-green.svg";
-import goldstar from "@assets/image/star-gold.svg";
-import me_ok from "@assets/image/me-ok.svg";
-import { IPopup } from "@interfaces";
+import { howGood, isGetStar } from "../../logic/logic";
+import greenstar from "../../assets/image/star-green.svg";
+import goldstar from "../../assets/image/star-gold.svg";
+import me_ok from "../../assets/image/me-ok.svg";
+import { IPopup } from "../../allInterfaces";
 
 interface IDay {
   date: Date;

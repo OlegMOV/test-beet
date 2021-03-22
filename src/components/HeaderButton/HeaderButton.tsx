@@ -1,9 +1,9 @@
 import React from "react";
 import "./headerbutton.scss";
-import greenstar from "@assets/image/star-green.svg";
-import goldstar from "@assets/image/star-gold.svg";
-import help from "@assets/image/help.svg";
-import { useCurrentMonthYear } from "@context/CalendarContext";
+import greenstar from "../../assets/image/star-green.svg";
+import goldstar from "../../assets/image/star-gold.svg";
+import help from "../../assets/image/help.svg";
+import { useCurrentMonthYear } from "../../ContextCalendar/CalendarContext";
 
 export type TypeButton = "greenstar" | "goldstar" | "help" | "text" | "";
 interface IButtonHeader {

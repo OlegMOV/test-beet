@@ -1,9 +1,9 @@
 import React from "react";
 import "./statushealth.scss";
-import { IHealth } from "@interfaces";
-import happy from "@assets/image/me-emoji-happy.svg";
-import neutral from "@assets/image/me-emoji-neutral.svg";
-import sad from "@assets/image/me-emoji-sad.svg";
+import { IHealth } from "../../allInterfaces";
+import happy from "../../assets/image/me-emoji-happy.svg";
+import neutral from "../../assets/image/me-emoji-neutral.svg";
+import sad from "../../assets/image/me-emoji-sad.svg";
 
 export const StatusHealth: React.FC<IHealth> = ({ status = "choose" }) => {
   return (

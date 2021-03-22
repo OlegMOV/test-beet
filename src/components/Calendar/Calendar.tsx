@@ -1,10 +1,10 @@
 import React from "react";
-import { CalendarContextProvider } from "@context/CalendarContext";
-import { Board } from "@components/Board/Board";
-import { Editor } from "@components/Editor/Editor";
-import { Header } from "@components/Header/Header";
-import { Help } from "@components/Help/Help";
-import { Modal } from "@components/Modal/Modal";
+import { CalendarContextProvider } from "../../ContextCalendar/CalendarContext";
+import { Board } from "../Board/Board";
+import { Editor } from "../Editor/Editor";
+import { Header } from "../Header/Header";
+import { Help } from "../Help/Help";
+import { Modal } from "../Modal/Modal";
 import "./calendar.scss";
 
 export const Calendar: React.FC = () => {

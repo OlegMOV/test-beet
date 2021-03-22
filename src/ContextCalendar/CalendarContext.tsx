@@ -1,6 +1,6 @@
 import React from "react";
-import { TypeButton } from "@components/HeaderButton/HeaderButton";
-import { IDataAPI, methodAPI, statusAPI, useFetchAPI } from "@api";
+import { TypeButton } from "../components/HeaderButton/HeaderButton";
+import { IDataAPI, methodAPI, statusAPI, useFetchAPI } from "../API/useApi";
 import * as path from "path";
 
 // * Limit stars on the month
