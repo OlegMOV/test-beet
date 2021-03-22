@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/test-beet/static/css/main.094ff536.chunk.css",
-    "main.js": "/test-beet/static/js/main.6012de56.chunk.js",
-    "main.js.map": "/test-beet/static/js/main.6012de56.chunk.js.map",
+    "main.js": "/test-beet/static/js/main.f6410a28.chunk.js",
+    "main.js.map": "/test-beet/static/js/main.f6410a28.chunk.js.map",
     "runtime-main.js": "/test-beet/static/js/runtime-main.b3979b73.js",
     "runtime-main.js.map": "/test-beet/static/js/runtime-main.b3979b73.js.map",
     "static/js/2.be4a3631.chunk.js": "/test-beet/static/js/2.be4a3631.chunk.js",
@@ -35,6 +35,6 @@
     "static/js/runtime-main.b3979b73.js",
     "static/js/2.be4a3631.chunk.js",
     "static/css/main.094ff536.chunk.css",
-    "static/js/main.6012de56.chunk.js"
+    "static/js/main.f6410a28.chunk.js"
   ]
 }
