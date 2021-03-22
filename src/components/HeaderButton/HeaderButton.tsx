@@ -1,9 +1,9 @@
 import React from "react";
 import "./headerbutton.scss";
-import greenstar from "../../assets/image/star-green.svg";
-import goldstar from "../../assets/image/star-gold.svg";
-import help from "../../assets/image/help.svg";
-import { useCurrentMonthYear } from "../../ContextCalendar/CalendarContext";
+import greenstar from "@assets/image/star-green.svg";
+import goldstar from "@assets/image/star-gold.svg";
+import help from "@assets/image/help.svg";
+import { useCurrentMonthYear } from "@context/CalendarContext";
 
 export type TypeButton = "greenstar" | "goldstar" | "help" | "text" | "";
 interface IButtonHeader {
@@ -45,7 +45,7 @@ export const HeaderButton: React.FC<IButtonHeader> = ({
           onDragStart={dragStarHandler}
         />
       )}
-      {text.length > 0 && <label>{text}</label>}
+      {text.length > 0 && <span>{text}</span>}
     </div>
   );
 };

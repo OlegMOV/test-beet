@@ -4,13 +4,13 @@
   font: {
     family: $font-family-calendar-text;
     weight: 400;
-    size: 14px;    
+    size: 14px;
   }
   position: relative;
   display: grid;
-  grid-template-rows: 53px repeat(5, 1fr);
+  grid-template-rows: 53px repeat(5, minmax(120px, 1fr)); 
   grid-template-columns: repeat(7, minmax(72px, 1fr));
-  height: calc(100vh - 20px - #{$height-header});
+  // height: calc(100vh - 20px - #{$height-header});
   border-radius: $border-radius-all;
   background-color: white;
   transition: 1s;
@@ -22,5 +22,5 @@
   &.large {
     grid-template-rows: 53px repeat(6, 1fr);
   }
-  overflow: auto;
+  // overflow: hidden;
 }

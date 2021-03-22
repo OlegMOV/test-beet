@@ -1,14 +1,11 @@
 import React from "react";
-import { Day } from "../Day/Day";
+import { Day } from "@components/Day/Day";
 import "./board.scss";
-import {
-  useCurrentMonthYear,
-  WeekDays,
-} from "../../ContextCalendar/CalendarContext";
-import { Popup } from "../Popup/Popup";
-import { IPopup } from "../../allInterfaces";
-import { createBoardMonth } from "../../logics/logics";
-import { statusAPI } from "../../API/useApi";
+import { useCurrentMonthYear, WeekDays } from "@context/CalendarContext";
+import { Popup } from "@components/Popup/Popup";
+import { IPopup } from "@interfaces";
+import { createBoardMonth } from "@logic";
+import { statusAPI } from "@api";
 
 export const Board: React.FC<{ toogleModal: (m: number) => void }> = ({
   toogleModal,
@@ -23,7 +20,23 @@ export const Board: React.FC<{ toogleModal: (m: number) => void }> = ({
     y: 0,
   });
   const [days, setDays] = React.useState<Date[]>([]);
+  const ref = React.useRef<HTMLDivElement | null>(null);
 
+  React.useEffect(() => {
+    const rf = ref?.current
+    const listenClick = (event: MouseEvent | TouchEvent) => {
+      if (!rf || rf.contains(event.target as Node)) {
+        return;
+      }
+      setCurrentData({ curDay: "", x: 0, y: 0 });
+    };
+    document.addEventListener(`mousedown`, listenClick);
+    document.addEventListener(`touchstart`, listenClick);
+    return () => {
+      document.removeEventListener(`mousedown`, listenClick);
+      document.removeEventListener(`touchstart`, listenClick);
+    };
+  }, []);
   React.useEffect(() => {
     setDays(createBoardMonth(curMonth, curYear));
     setCurrentData({ curDay: "", x: 0, y: 0 });
@@ -36,9 +49,8 @@ export const Board: React.FC<{ toogleModal: (m: number) => void }> = ({
       setCurrentData({ curDay: "", x: 0, y: 0 });
     else setCurrentData(data);
   };
-
   return (
-    <div className={sizeBoard}>
+    <div className={sizeBoard} ref={ref}>
       {}
       {Object.keys(WeekDays)
         .filter((x) => !(parseInt(x) >= 0))

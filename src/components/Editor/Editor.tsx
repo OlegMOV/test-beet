@@ -1,15 +1,10 @@
 import React from "react";
 import "./editor.scss";
-import { howGood } from "../../logics/logics";
+import { howGood } from "@logic";
 
-import {
-  useCurrentMonthYear,
-  IResault,
-  // IStateResaults,
-} from "../../ContextCalendar/CalendarContext";
-import { Counter } from "../Counter/Counter";
-import { StatusHealth } from "../StatusHealth/StatusHealth";
-// import { IDataAPI, methodAPI, useFetchAPI } from "../../API/useApi";
+import { useCurrentMonthYear, IResault } from "@context/CalendarContext";
+import { Counter } from "@components/Counter/Counter";
+import { StatusHealth } from "@components/StatusHealth/StatusHealth";
 
 export const Editor: React.FC<{ handleClose: () => void }> = ({
   handleClose,
@@ -22,7 +17,6 @@ export const Editor: React.FC<{ handleClose: () => void }> = ({
 
   const res: IResault = getResaultOnDate(selectedDate);
   const [editResault, setEditResault] = React.useState<IResault>(res);
-  // const [data, createQuery, isLoading] = useFetchAPI();
 
   React.useEffect(() => {
     setEditResault((prev) => ({ ...prev, ...res }));
@@ -46,40 +40,6 @@ export const Editor: React.FC<{ handleClose: () => void }> = ({
     }));
 
   const handleEditData = (): void => {
-    // let temp: IDataAPI = {
-    //   redCounts: Number(editResault.redCounts) || 0,
-    //   greenCounts: Number(editResault.greenCounts) || 0,
-    //   stepCounts: Number(editResault.stepCounts) || 0,
-    //   amountGreenStar: Number(editResault.amountGreenStar) || 0,
-    //   amountGoldStar: Number(editResault.amountGoldStar) || 0,
-    //   date: selectedDate,
-    //   personID: "60508d17f0eddc279bda88bb",
-    // };
-
-    // let ed: boolean =
-    //   res.amountGoldStar === 0 &&
-    //   res.amountGreenStar === 0 &&
-    //   res.greenCounts === 0 &&
-    //   res.redCounts === 0 &&
-    //   res.stepCounts === 0;
-    // if (
-    //   res.amountGoldStar !== editResault.amountGoldStar ||
-    //   res.amountGreenStar !== editResault.amountGreenStar ||
-    //   res.greenCounts !== editResault.greenCounts ||
-    //   res.redCounts !== editResault.redCounts ||
-    //   res.stepCounts !== editResault.stepCounts
-    // ) {
-    //   console.log('start fetch');
-      
-    //   createQuery({
-    //     urlAppendix: "",
-    //     params: "",
-    //     method: ed ? methodAPI.post : methodAPI.put,
-    //     data: temp,
-    //   });
-    // }
-    // console.log("editor", ed, temp);
-
     changeGlobalState({ [selectedDate]: editResault });
     handleClose();
   };

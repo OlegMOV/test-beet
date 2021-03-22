@@ -14,19 +14,27 @@ export enum methodAPI {
   delete = "DELETE",
 }
 
-export interface IFetchAxios {
-  url: string;
-  method: methodAPI;
-  params: IDataAPI;
-  headers: IDataAPI;
-  data: IDataAPI;
-}
-
 export interface IDataAPI {
   [propName: string]: string | number | any;
 }
 
-let options = {
+export interface IFetchAxios {
+  url: string;
+  method: methodAPI;
+  params: IDataAPI | {};
+  headers: IDataAPI | {};
+  data: IDataAPI | {};
+}
+
+export const createFormData = (data: IDataAPI): FormData => {
+  const formData = new FormData();
+  if (data !== undefined) {
+    Object.keys(data).forEach((i) => formData.append(i, data[i]));
+  }
+  return formData;
+};
+
+let options: IFetchAxios = {
   url: "",
   method: methodAPI.get,
   params: {},
@@ -39,27 +47,18 @@ export const useFetchAPI = (): [IDataAPI[], Function, statusAPI] => {
   const [isLoading, setIsLoading] = useState<statusAPI>(statusAPI.SUCCESS);
   const [responseAPI, setResponseAPI] = useState<IDataAPI[]>([]);
 
-  // Зміна стейту на основі даних отриманих з серверу
+  // Изменение данных хранилища
   const changePartState = (partialData: IDataAPI[]): void =>
     setResponseAPI([...responseAPI, ...partialData]);
 
-  // Зовнішя функція для Формування запиту на основі отриманих параметрів
+  // Функция для формирования запроса
   const createQuery = (config: IFetchAxios): void => {
-    const formData = new FormData();
-    if (config.data !== undefined) {
-      Object.keys(config.data).forEach((i) =>
-        formData.append(i, config.data[i])
-      );
-    }
     options = {
       url: config.url,
-      params: config.params !== undefined ? config.params : "",
       method: config.method,
-      data: config.data !== undefined ? config.data : "",
-      headers: {},
-      // config.data !== undefined
-      //   ? { Accept: "application/json", "Content-type": "application/json" }
-      //   : {},
+      params: config.params !== undefined ? config.params : {},
+      headers: config.headers !== undefined ? config.data : {}, // 'Authorization': `Basic ${token}`
+      data: config.data !== undefined ? config.data : {},
     };
     setUrl(options.url);
   };
@@ -91,6 +90,6 @@ export const useFetchAPI = (): [IDataAPI[], Function, statusAPI] => {
         setIsLoading(statusAPI.ERROR);
       })
       .finally(() => setUrl(""));
-  }, [url]); 
+  }, [url]);
   return [responseAPI, createQuery, isLoading];
 };

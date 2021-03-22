@@ -2,10 +2,10 @@ import React from "react";
 import {
   useCurrentMonthYear,
   MonthNames,
-} from "../../ContextCalendar/CalendarContext";
+} from "@context/CalendarContext";
 import "./months.scss";
-import arrowLeft from "../../assets/image/me-shot-arrow-left.svg";
-import arrowRight from "../../assets/image/me-shot-arrow-right.svg";
+import arrowLeft from "@assets/image/me-shot-arrow-left.svg";
+import arrowRight from "@assets/image/me-shot-arrow-right.svg";
 
 export const Months: React.FC = () => {
   const {

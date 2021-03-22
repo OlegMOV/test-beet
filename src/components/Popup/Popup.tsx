@@ -4,15 +4,15 @@ import CSS from "csstype";
 import {
   useCurrentMonthYear,
   IResault,
-} from "../../ContextCalendar/CalendarContext";
-import { howGood } from "../../logics/logics";
-import { IHealth, IPopup } from "../../allInterfaces";
-import greenBall from "../../assets/image/me-green-ball.svg";
-import redBall from "../../assets/image/me-red-ball.svg";
-import steps from "../../assets/image/me-steps.svg";
-import happy from "../../assets/image/me-emoji-happy.svg";
-import neutral from "../../assets/image/me-emoji-neutral.svg";
-import sad from "../../assets/image/me-emoji-sad.svg";
+} from "@context/CalendarContext";
+import { howGood } from "@logic";
+import { IHealth, IPopup } from "@interfaces";
+import greenBall from "@assets/image/me-green-ball.svg";
+import redBall from "@assets/image/me-red-ball.svg";
+import steps from "@assets/image/me-steps.svg";
+import happy from "@assets/image/me-emoji-happy.svg";
+import neutral from "@assets/image/me-emoji-neutral.svg";
+import sad from "@assets/image/me-emoji-sad.svg";
 
 const weightCounts = (n: number): string => `${n > 0 ? "active" : ""}`;
 

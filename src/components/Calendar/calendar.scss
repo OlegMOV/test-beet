@@ -1,18 +1,18 @@
 @import "../../assets/css/variables.scss";
 .m-calendar {
     background-color: $bg-calendar;
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    // width: 100vw;
     min-width: 740px;
     margin: 0 auto;
     cursor: pointer;
+    // overflow: auto;
     .main-wrapper {
         display: flex;
         flex-direction: column;
         max-width: 1096px;
-        min-width: 730px;
-        height: 100vh;
-        margin: 0 auto;
-        overflow: auto;
+        min-width: 740px;
+        // height: 100%;
+        margin: 0 auto;        
     }
 }

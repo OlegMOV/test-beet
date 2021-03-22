@@ -1,9 +1,9 @@
 import React from "react";
 import "./header.scss";
-import { Months } from "../Months/Months";
-import { HeaderButton } from "../HeaderButton/HeaderButton";
-import { useCurrentMonthYear } from "../../ContextCalendar/CalendarContext";
-import { isDraggableDay } from "../../logics/logics";
+import { Months } from "@components/Months/Months";
+import { HeaderButton } from "@components/HeaderButton/HeaderButton";
+import { useCurrentMonthYear } from "@context/CalendarContext";
+import { isDraggableDay } from "@logic";
 
 export const Header: React.FC<{ toogleModal: (m: number) => void }> = ({
   toogleModal,

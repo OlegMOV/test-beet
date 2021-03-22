@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["./src/components/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@context/*": ["./src/ContextCalendar/*"],
+      "@interfaces": ["./src/allInterfaces.ts"],
+      "@logic": ["./src/logic/logic.ts"],
+      "@api": ["./src/API/useApi.ts"]
+    }
+  }
+}

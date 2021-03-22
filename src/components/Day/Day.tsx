@@ -5,13 +5,13 @@ import {
   MonthNames,
   IResault,
   IStateResaults,
-} from "../../ContextCalendar/CalendarContext";
+} from "@context/CalendarContext";
 import "../../date.extensions";
-import { howGood, isGetStar } from "../../logics/logics";
-import greenstar from "../../assets/image/star-green.svg";
-import goldstar from "../../assets/image/star-gold.svg";
-import me_ok from "../../assets/image/me-ok.svg";
-import { IPopup } from "../../allInterfaces";
+import { howGood, isGetStar } from "@logic";
+import greenstar from "@assets/image/star-green.svg";
+import goldstar from "@assets/image/star-gold.svg";
+import me_ok from "@assets/image/me-ok.svg";
+import { IPopup } from "@interfaces";
 
 interface IDay {
   date: Date;
@@ -125,9 +125,9 @@ export const Day: React.FC<IDay> = ({ date, toogleModal, popupDialog }) => {
         y: 0,
       });
     let board = ev.currentTarget as HTMLDivElement;
-    const widthPopup = 285;
+    const widthPopup: number = 285; // ? width popup FC
     // ! Need adaptive Y
-    let widthBoard = board.offsetParent?.clientWidth || 0;
+    let widthBoard: number = board.offsetParent?.clientWidth || 0; // ? width parent FC
     // let heightBoard = board.offsetParent?.clientHeight || 0;
     const {
       width: widthDay,
@@ -147,13 +147,10 @@ export const Day: React.FC<IDay> = ({ date, toogleModal, popupDialog }) => {
         x: xCandidate,
         y: yClient - offsetTopBoard,
       });
-      ev.stopPropagation();
+    ev.stopPropagation();
   };
   return (
-    <div
-      className={classDay}
-      onClick={handlerHover}
-    >
+    <div className={classDay} onClick={handlerHover}>
       <div className={classDate}>{labelDate}</div>
       {isEditable && (
         <div
@@ -175,15 +172,21 @@ export const Day: React.FC<IDay> = ({ date, toogleModal, popupDialog }) => {
         {res.greenCounts > 0 &&
           Array(totalResault(res))
             .fill("")
-            .map((i, ind) => <img src={me_ok} alt="!" key={ind} />)}
+            .map((i, ind) => (
+              <img src={me_ok} alt="!" key={ind} draggable={false} />
+            ))}
         {res.amountGreenStar > 0 &&
           Array(res.amountGreenStar)
             .fill("")
-            .map((i, ind) => <img src={greenstar} alt="" key={ind} />)}
+            .map((i, ind) => (
+              <img src={greenstar} alt="" key={ind} draggable={false} />
+            ))}
         {res.amountGoldStar > 0 &&
           Array(res.amountGoldStar)
             .fill("")
-            .map((i, ind) => <img src={goldstar} alt="" key={ind} />)}
+            .map((i, ind) => (
+              <img src={goldstar} alt="" key={ind} draggable={false} />
+            ))}
       </div>
     </div>
   );

@@ -1,10 +1,15 @@
 import React from "react";
-import { TypeButton } from "../components/HeaderButton/HeaderButton";
-import { IDataAPI, methodAPI, statusAPI, useFetchAPI } from "../API/useApi";
+import { TypeButton } from "@components/HeaderButton/HeaderButton";
+import { IDataAPI, methodAPI, statusAPI, useFetchAPI } from "@api";
+import * as path from "path";
 
 // * Limit stars on the month
 const limitGreen: number = 21;
 const limitGold: number = 7;
+
+// * URL API, users id
+const urlAPI: string = "https://test-beetroot.herokuapp.com/achieves";
+const userID: string = "60508d17f0eddc279bda88bb";
 
 export enum MonthNames {
   "January",
@@ -126,10 +131,10 @@ export const CalendarContextProvider: React.FC<React.ReactNode> = ({
         greenStars: Number(data[dateEdit].amountGreenStar) || 0,
         goldStars: Number(data[dateEdit].amountGoldStar) || 0,
         date: dateEdit,
-        personID: "60508d17f0eddc279bda88bb",
+        personID: userID,
       };
       createQuery({
-        url: "https://test-beetroot.herokuapp.com/achieves",
+        url: urlAPI,
         params: "",
         method: methodapi,
         data: temp,
@@ -140,8 +145,7 @@ export const CalendarContextProvider: React.FC<React.ReactNode> = ({
   // * Initial state from API
   React.useEffect(() => {
     createQuery({
-      url:
-        "https://test-beetroot.herokuapp.com/achieves/month/60508d17f0eddc279bda88bb",
+      url: path.join(urlAPI, "month", userID),
       params: { month: curMonthYear[0] + 1, year: curMonthYear[1] },
       method: methodAPI.get,
     });
