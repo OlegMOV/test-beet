@@ -20,7 +20,7 @@
     align-items: center;
   }
   &.large {
-    grid-template-rows: 53px repeat(6, 1fr);
+    grid-template-rows: 53px repeat(6, minmax(120px, 1fr));
   }
   // overflow: hidden;
 }
